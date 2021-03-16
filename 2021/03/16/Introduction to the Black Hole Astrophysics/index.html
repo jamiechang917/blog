@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"jamiechang917.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="The personal blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Astro">
-<meta property="og:url" content="https://jamiechang917.github.io/blog/index.html">
+  <meta name="description" content="Some notes of the course Introduction to the Black Hole Astrophysics in Spring,2021,NTHU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to the Black Hole Astrophysics">
+<meta property="og:url" content="https://jamiechang917.github.io/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/index.html">
 <meta property="og:site_name" content="Astro">
-<meta property="og:description" content="The personal blog">
+<meta property="og:description" content="Some notes of the course Introduction to the Black Hole Astrophysics in Spring,2021,NTHU">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-03-16T15:43:11.110Z">
+<meta property="article:modified_time" content="2021-03-16T16:04:48.101Z">
 <meta property="article:author" content="Jamie Chang">
+<meta property="article:tag" content="astrophysics,">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://jamiechang917.github.io/blog/">
+<link rel="canonical" href="https://jamiechang917.github.io/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-tw'
   };
 </script>
 
-  <title>Astro</title>
+  <title>Introduction to the Black Hole Astrophysics | Astro</title>
   
 
 
@@ -166,9 +169,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
@@ -184,10 +188,9 @@
       <meta itemprop="name" content="Astro">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/" class="post-title-link" itemprop="url">Introduction to the Black Hole Astrophysics</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Introduction to the Black Hole Astrophysics
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -216,6 +219,7 @@
             </span>
 
           
+            <div class="post-description">Some notes of the course Introduction to the Black Hole Astrophysics in Spring,2021,NTHU</div>
 
         </div>
       </header>
@@ -226,96 +230,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Some notes of the course Introduction to the Black Hole Astrophysics in Spring,2021,NTHU</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/">
-                تابع القراءة &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+        <h2 id="Lecture-4"><a href="#Lecture-4" class="headerlink" title="Lecture 4"></a>Lecture 4</h2><h2 id="Schwarzschild-and-Kerr-BHs"><a href="#Schwarzschild-and-Kerr-BHs" class="headerlink" title="Schwarzschild and Kerr BHs"></a>Schwarzschild and Kerr BHs</h2><h4 id="No-Hair-Theorem"><a href="#No-Hair-Theorem" class="headerlink" title="No Hair Theorem"></a>No Hair Theorem</h4><ul>
+<li>Maximum of parameters : <strong>{M,L,Q}</strong></li>
+<li>Satisfy the relation $Q^{2}+(L/M)^{2}\leq M^{2}$<h4 id="Constraints-of-BH-Spin"><a href="#Constraints-of-BH-Spin" class="headerlink" title="Constraints of BH Spin"></a>Constraints of BH Spin</h4></li>
+<li>Since electric force &gt;&gt; gravity, in general, <strong>Q=0</strong> for astrophysical BHs.</li>
+<li>For $Q=0$, $|L| \leq M^{2}$.</li>
+<li>Define $a = L/M^{2}$ as the BH spin parameter, then $0 \leq |a| \leq 1$.</li>
+<li>Two Types of BHs, Schwarzschild ($a=0$) and Kerr ($a\neq 0$).</li>
+</ul>
+<hr>
+<h3 id="Schwarzchild-BH"><a href="#Schwarzchild-BH" class="headerlink" title="Schwarzchild BH"></a>Schwarzchild BH</h3><ul>
+<li>Non-spinning, non-charged BH</li>
+<li><p>Schwarzchild Radius $r_{s} = \frac{2GM}{c^{s}} = 3km(M/M_{sun}) = 9mm(M/M_{earth})$</p>
+<blockquote>
+<p>Schwarzchild Matrix: $ds^{2} = c^{2}d\tau^{2} = Ac^{2}dt^{2} - Bd\tau^{2} - r^{2}d\theta^{2} - r^{2}sin^{2}\theta d\phi^{2} \text{ where } A=B^{-1}=(1-\frac{r_{s}}{r})$</p>
+</blockquote>
+</li>
+<li><p><strong>For light rays, $ds^{2}=0$</strong>, </p>
+</li>
+<li>From Schwarzchild matrix, $dt = \frac{d\tau}{\sqrt{1-\frac{r_{s}}{r}}}$, when $r\rightarrow \infty$, $dt=d\tau$, on the other hand, $dt\rightarrow \infty$ when $r\rightarrow r_{s}$.</li>
+<li>Define gravitational redshift $1+z = \frac{\lambda_{\infty}}{\lambda}$.</li>
+</ul>
+<h4 id="Orbital-Motions"><a href="#Orbital-Motions" class="headerlink" title="Orbital Motions"></a>Orbital Motions</h4><ul>
+<li>The orbital equation $(\frac{dr}{d\tau})^{2} = f$</li>
+<li>Effective potential $V(r) = \frac{h^{2}}{2r^{2}}(1-\frac{2GM}{c^{2}r})-\frac{GM}{r}$</li>
+<li>For $h&lt;2\sqrt{3}$ $(\frac{\partial^{2} V}{\partial r^{2}} \leq 0)$, there is no stable circular orbits.</li>
+<li><strong>Innermost stable circular orbit (ISCO)</strong> for Schwarzschild BHs ($h&lt;2\sqrt{3}$) <blockquote>
+<p>$R_{ISCO} = 6GM/c^{2} = 3r_{s}$.</p>
+</blockquote>
+</li>
+<li>$R_{ISCO}$ is the <strong>smallest distance</strong> from a BH for a particle to stably maintain a circular orbit.</li>
+<li>Amount of energy lost to radiation is related to ISCO.</li>
+<li>At $R_{ISCO}$, orbital frequency is proportional to $M^{-1}$. (~218Hz for $10M_{sun}$ BH).</li>
+</ul>
+<hr>
+<h3 id="Kerr-BH"><a href="#Kerr-BH" class="headerlink" title="Kerr BH"></a>Kerr BH</h3><h4 id="Structure-of-Kerr-BHs"><a href="#Structure-of-Kerr-BHs" class="headerlink" title="Structure of Kerr BHs"></a>Structure of Kerr BHs</h4><ul>
+<li>Frame-dragging effect</li>
+<li>Ring singularity $r = a \times (GM/c^{2})$</li>
+<li>Exist a possible way to exit BH</li>
+<li>Event horizon $r_{s} = \frac{GM}{c^{2}}[1+\sqrt{1-a^{2}}]$, for $a=1, r_{s} = 0.5 r_{s,schwarzschild}$.</li>
+<li><strong>Stationary limit surface</strong></li>
+<li>Penrose process</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/astrophysics/" rel="tag"># astrophysics,</a>
+          </div>
+
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/03/16/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://jamiechang917.github.io/blog/2021/03/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Jamie Chang">
-      <meta itemprop="description" content="The personal blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Astro">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2021/03/16/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">نُشر في</span>
-
-              <time title="أُنشأ: 2021-03-16 21:07:09" itemprop="dateCreated datePublished" datetime="2021-03-16T21:07:09+08:00">2021-03-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -368,6 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-4"><span class="nav-number">1.</span> <span class="nav-text">Lecture 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schwarzschild-and-Kerr-BHs"><span class="nav-number">2.</span> <span class="nav-text">Schwarzschild and Kerr BHs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#No-Hair-Theorem"><span class="nav-number">2.0.1.</span> <span class="nav-text">No Hair Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constraints-of-BH-Spin"><span class="nav-number">2.0.2.</span> <span class="nav-text">Constraints of BH Spin</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schwarzchild-BH"><span class="nav-number">2.1.</span> <span class="nav-text">Schwarzchild BH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Orbital-Motions"><span class="nav-number">2.1.1.</span> <span class="nav-text">Orbital Motions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kerr-BH"><span class="nav-number">2.2.</span> <span class="nav-text">Kerr BH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Structure-of-Kerr-BHs"><span class="nav-number">2.2.1.</span> <span class="nav-text">Structure of Kerr BHs</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
