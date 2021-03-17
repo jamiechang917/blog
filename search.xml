@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Introduction to the Black Hole Astrophysics</title>
+    <url>/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/</url>
+    <content><![CDATA[<h2 id="Lecture-4"><a href="#Lecture-4" class="headerlink" title="Lecture 4"></a>Lecture 4</h2><h2 id="Schwarzschild-and-Kerr-BHs"><a href="#Schwarzschild-and-Kerr-BHs" class="headerlink" title="Schwarzschild and Kerr BHs"></a>Schwarzschild and Kerr BHs</h2><h4 id="No-Hair-Theorem"><a href="#No-Hair-Theorem" class="headerlink" title="No Hair Theorem"></a>No Hair Theorem</h4><ul>
+<li>Maximum of parameters : <strong>{M,L,Q}</strong></li>
+<li>Satisfy the relation $Q^{2}+(L/M)^{2}\leq M^{2}$<h4 id="Constraints-of-BH-Spin"><a href="#Constraints-of-BH-Spin" class="headerlink" title="Constraints of BH Spin"></a>Constraints of BH Spin</h4></li>
+<li>Since electric force &gt;&gt; gravity, in general, <strong>Q=0</strong> for astrophysical BHs.</li>
+<li>For $Q=0$, $|L| \leq M^{2}$.</li>
+<li>Define $a = L/M^{2}$ as the BH spin parameter, then $0 \leq |a| \leq 1$.</li>
+<li>Two Types of BHs, Schwarzschild ($a=0$) and Kerr ($a\neq 0$).</li>
+</ul>
+<hr>
+<h3 id="Schwarzchild-BH"><a href="#Schwarzchild-BH" class="headerlink" title="Schwarzchild BH"></a>Schwarzchild BH</h3><ul>
+<li>Non-spinning, non-charged BH</li>
+<li><p>Schwarzchild Radius $r_{s} = \frac{2GM}{c^{s}} = 3km(M/M_{sun}) = 9mm(M/M_{earth})$</p>
+<blockquote>
+<p>Schwarzchild Matrix: $ds^{2} = c^{2}d\tau^{2} = Ac^{2}dt^{2} - Bd\tau^{2} - r^{2}d\theta^{2} - r^{2}sin^{2}\theta d\phi^{2} \text{ where } A=B^{-1}=(1-\frac{r_{s}}{r})$</p>
+</blockquote>
+</li>
+<li><p><strong>For light rays, $ds^{2}=0$</strong>, </p>
+</li>
+<li>From Schwarzchild matrix, $dt = \frac{d\tau}{\sqrt{1-\frac{r_{s}}{r}}}$, when $r\rightarrow \infty$, $dt=d\tau$, on the other hand, $dt\rightarrow \infty$ when $r\rightarrow r_{s}$.</li>
+<li>Define gravitational redshift $1+z = \frac{\lambda_{\infty}}{\lambda}$.</li>
+</ul>
+<h4 id="Orbital-Motions"><a href="#Orbital-Motions" class="headerlink" title="Orbital Motions"></a>Orbital Motions</h4><ul>
+<li>The orbital equation $(\frac{dr}{d\tau})^{2} = f$</li>
+<li>Effective potential $V(r) = \frac{h^{2}}{2r^{2}}(1-\frac{2GM}{c^{2}r})-\frac{GM}{r}$</li>
+<li>For $h&lt;2\sqrt{3}$ $(\frac{\partial^{2} V}{\partial r^{2}} \leq 0)$, there is no stable circular orbits.</li>
+<li><strong>Innermost stable circular orbit (ISCO)</strong> for Schwarzschild BHs ($h&lt;2\sqrt{3}$) <blockquote>
+<p>$R_{ISCO} = 6GM/c^{2} = 3r_{s}$.</p>
+</blockquote>
+</li>
+<li>$R_{ISCO}$ is the <strong>smallest distance</strong> from a BH for a particle to stably maintain a circular orbit.</li>
+<li>Amount of energy lost to radiation is related to ISCO.</li>
+<li>At $R_{ISCO}$, orbital frequency is proportional to $M^{-1}$. (~218Hz for $10M_{sun}$ BH).</li>
+</ul>
+<hr>
+<h3 id="Kerr-BH"><a href="#Kerr-BH" class="headerlink" title="Kerr BH"></a>Kerr BH</h3><h4 id="Structure-of-Kerr-BHs"><a href="#Structure-of-Kerr-BHs" class="headerlink" title="Structure of Kerr BHs"></a>Structure of Kerr BHs</h4><ul>
+<li>Frame-dragging effect</li>
+<li>Ring singularity $r = a \times (GM/c^{2})$</li>
+<li>Exist a possible way to exit BH</li>
+<li>Event horizon $r_{s} = \frac{GM}{c^{2}}[1+\sqrt{1-a^{2}}]$, for $a=1, r_{s} = 0.5 r_{s,schwarzschild}$.</li>
+<li><strong>Stationary limit surface</strong></li>
+<li>Penrose process</li>
+</ul>
+]]></content>
+      <categories>
+        <category>astrophysics,</category>
+      </categories>
+      <tags>
+        <tag>astrophysics,</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/blog/2021/03/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hello,yahh</category>
+      </categories>
+      <tags>
+        <tag>hello,yahh</tag>
+      </tags>
+  </entry>
+</search>

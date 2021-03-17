@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jamiechang917.github.io/blog/info/index.html</loc>
+    
+    <lastmod>2021-03-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jamiechang917.github.io/blog/about/index.html</loc>
+    
+    <lastmod>2021-03-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jamiechang917.github.io/blog/categories/index.html</loc>
+    
+    <lastmod>2021-03-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jamiechang917.github.io/blog/tags/index.html</loc>
     
     <lastmod>2021-03-17</lastmod>
@@ -16,21 +37,7 @@
   </url>
   
   <url>
-    <loc>https://jamiechang917.github.io/blog/about/index.html</loc>
-    
-    <lastmod>2021-03-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jamiechang917.github.io/blog/archives/index.html</loc>
-    
-    <lastmod>2021-03-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jamiechang917.github.io/blog/categories/index.html</loc>
     
     <lastmod>2021-03-17</lastmod>
     
@@ -53,14 +60,14 @@
 
   
   <url>
-    <loc>https://jamiechang917.github.io/blog/tags/hello-yahh/</loc>
+    <loc>https://jamiechang917.github.io/blog/tags/astrophysics/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jamiechang917.github.io/blog/tags/astrophysics/</loc>
+    <loc>https://jamiechang917.github.io/blog/tags/hello-yahh/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -69,14 +76,14 @@
 
   
   <url>
-    <loc>https://jamiechang917.github.io/blog/categories/hello-yahh/</loc>
+    <loc>https://jamiechang917.github.io/blog/categories/astrophysics/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jamiechang917.github.io/blog/categories/astrophysics/</loc>
+    <loc>https://jamiechang917.github.io/blog/categories/hello-yahh/</loc>
     <lastmod>2021-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
