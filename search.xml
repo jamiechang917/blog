@@ -54,26 +54,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/blog/2021/03/16/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>hello,yahh</category>
-      </categories>
-      <tags>
-        <tag>hello,yahh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MPI Tutorial 2</title>
     <url>/blog/2021/03/23/MPI%20Tutorial%202/</url>
     <content><![CDATA[<h2 id="MPI-Tutorial-2-P2P-Communication"><a href="#MPI-Tutorial-2-P2P-Communication" class="headerlink" title="MPI Tutorial 2 - P2P Communication"></a>MPI Tutorial 2 - P2P Communication</h2><h3 id="P2P-Communication"><a href="#P2P-Communication" class="headerlink" title="P2P Communication"></a>P2P Communication</h3><p>點對點通訊在平行程式中相當重要，由於每個處理器會獨立執行<code>main()</code>，定義的變數也是獨立的，若要將變數的值或是資料傳送給其他處理器，就會用到通訊的函式。<br>:::info<br>這個章節會介紹MPI_Send()及MPI_Recv()的應用<br>:::</p>
@@ -117,6 +97,107 @@
       </categories>
       <tags>
         <tag>parallel programming, MPI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>觀星日誌01</title>
+    <url>/blog/2021/03/25/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C01/</url>
+    <content><![CDATA[<h1 id="觀星日誌-1"><a href="#觀星日誌-1" class="headerlink" title="觀星日誌 #1"></a>觀星日誌 #1</h1><p>:::info</p>
+<ul>
+<li>日期：2021/03/24(三) - 2021/03/25(四)</li>
+<li>時間：22:00 - 07:30</li>
+<li>月相：0.79</li>
+<li>天氣：局部偶雲轉晴</li>
+<li>地點：清大天文台<br>:::</li>
+</ul>
+<h2 id="觀測概況"><a href="#觀測概況" class="headerlink" title="觀測概況"></a>觀測概況</h2><p>我是看到今天天氣預報說下半夜會轉晴才決定前往天文台過夜的，沒意外這次是我第一次使用清大天文台新加裝的攝影設備，拍攝時除了遇到濾鏡盤連接不良以及自動對焦的小狀況外，大致上都很順利，同時也有兩位同是天文台解說員的同學一同參與觀測。天亮時趕緊拍平場，拍得還不錯，拍完後就是漫長的暗電流，最後拍偏壓檔收尾。</p>
+<h2 id="觀測目標"><a href="#觀測目標" class="headerlink" title="觀測目標"></a>觀測目標</h2><p>本次為了完成梅西耶星表拍攝數個梅西耶天體，這次是第一次開始製作梅西耶星表，預計拍攝110個天體。</p>
+<ul>
+<li>25cm F12 折射鏡</li>
+<li>ASI 6200MM Pro @ 0°C</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">目標</th>
+<th style="text-align:center">濾鏡</th>
+<th style="text-align:center">曝光時間 (s)</th>
+<th style="text-align:center">張數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">M3</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+<tr>
+<td style="text-align:center">M5</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+<tr>
+<td style="text-align:center">M13</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+<tr>
+<td style="text-align:center"><font color="#f00">M20</font></td>
+<td style="text-align:center">Ha,OIII</td>
+<td style="text-align:center">300,300</td>
+<td style="text-align:center">8,8</td>
+</tr>
+<tr>
+<td style="text-align:center">M53</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+<tr>
+<td style="text-align:center">M83</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+<tr>
+<td style="text-align:center">M84&amp;M86</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">?,?,?,?</td>
+</tr>
+<tr>
+<td style="text-align:center">M87</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">?,?,?,?</td>
+</tr>
+<tr>
+<td style="text-align:center">M90</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">20,60,60,60</td>
+<td style="text-align:center">1,1,1,1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中 M20 為重點觀測目標，希望未來能補上更多資料。</p>
+<h2 id="觀測照片"><a href="#觀測照片" class="headerlink" title="觀測照片"></a>觀測照片</h2><p>處理中</p>
+<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><h3 id="濾鏡盤接觸不良"><a href="#濾鏡盤接觸不良" class="headerlink" title="濾鏡盤接觸不良"></a>濾鏡盤接觸不良</h3><p>電腦端常常反覆發出裝置斷線和連線的警示音，後期發現濾鏡盤連接不上，最後是將濾鏡盤訊號線從相機上的 USB 孔移至 USB Hub 上就沒這問題了</p>
+<h3 id="自動對焦找不到"><a href="#自動對焦找不到" class="headerlink" title="自動對焦找不到"></a>自動對焦找不到</h3><p>一開始用 MaxImDL 一直找不到對焦點，最後用 NINA 解決</p>
+<h2 id="待辦事項"><a href="#待辦事項" class="headerlink" title="待辦事項"></a>待辦事項</h2><ul>
+<li>[ ] 將NINA中的濾鏡後綴從數字編號改成濾鏡名稱</li>
+<li>[ ] 嘗試將NINA連接星圖，得知該拍攝目標 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>astronomy</category>
+      </categories>
+      <tags>
+        <tag>astrophotography, astronomy observing,</tag>
       </tags>
   </entry>
 </search>
