@@ -29,59 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Introduction to the Black Hole Astrophysics</title>
-    <url>/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/</url>
-    <content><![CDATA[<h2 id="Lecture-4"><a href="#Lecture-4" class="headerlink" title="Lecture 4"></a>Lecture 4</h2><h2 id="Schwarzschild-and-Kerr-BHs"><a href="#Schwarzschild-and-Kerr-BHs" class="headerlink" title="Schwarzschild and Kerr BHs"></a>Schwarzschild and Kerr BHs</h2><h4 id="No-Hair-Theorem"><a href="#No-Hair-Theorem" class="headerlink" title="No Hair Theorem"></a>No Hair Theorem</h4><ul>
-<li>Maximum of parameters : <strong>{M,L,Q}</strong></li>
-<li>Satisfy the relation $Q^{2}+(L/M)^{2}\leq M^{2}$<h4 id="Constraints-of-BH-Spin"><a href="#Constraints-of-BH-Spin" class="headerlink" title="Constraints of BH Spin"></a>Constraints of BH Spin</h4></li>
-<li>Since electric force &gt;&gt; gravity, in general, <strong>Q=0</strong> for astrophysical BHs.</li>
-<li>For $Q=0$, $|L| \leq M^{2}$.</li>
-<li>Define $a = L/M^{2}$ as the BH spin parameter, then $0 \leq |a| \leq 1$.</li>
-<li>Two Types of BHs, Schwarzschild ($a=0$) and Kerr ($a\neq 0$).</li>
-</ul>
-<hr>
-<h3 id="Schwarzchild-BH"><a href="#Schwarzchild-BH" class="headerlink" title="Schwarzchild BH"></a>Schwarzchild BH</h3><ul>
-<li>Non-spinning, non-charged BH</li>
-<li><p>Schwarzchild Radius $r_{s} = \frac{2GM}{c^{s}} = 3km(M/M_{sun}) = 9mm(M/M_{earth})$</p>
-<blockquote>
-<p>Schwarzchild Matrix: $ds^{2} = c^{2}d\tau^{2} = Ac^{2}dt^{2} - Bd\tau^{2} - r^{2}d\theta^{2} - r^{2}sin^{2}\theta d\phi^{2} \text{ where } A=B^{-1}=(1-\frac{r_{s}}{r})$</p>
-</blockquote>
-</li>
-<li><p><strong>For light rays, $ds^{2}=0$</strong>, </p>
-</li>
-<li>From Schwarzchild matrix, $dt = \frac{d\tau}{\sqrt{1-\frac{r_{s}}{r}}}$, when $r\rightarrow \infty$, $dt=d\tau$, on the other hand, $dt\rightarrow \infty$ when $r\rightarrow r_{s}$.</li>
-<li>Define gravitational redshift $1+z = \frac{\lambda_{\infty}}{\lambda}$.</li>
-</ul>
-<h4 id="Orbital-Motions"><a href="#Orbital-Motions" class="headerlink" title="Orbital Motions"></a>Orbital Motions</h4><ul>
-<li>The orbital equation $(\frac{dr}{d\tau})^{2} = f$</li>
-<li>Effective potential $V(r) = \frac{h^{2}}{2r^{2}}(1-\frac{2GM}{c^{2}r})-\frac{GM}{r}$</li>
-<li>For $h&lt;2\sqrt{3}$ $(\frac{\partial^{2} V}{\partial r^{2}} \leq 0)$, there is no stable circular orbits.</li>
-<li><strong>Innermost stable circular orbit (ISCO)</strong> for Schwarzschild BHs ($h&lt;2\sqrt{3}$) <blockquote>
-<p>$R_{ISCO} = 6GM/c^{2} = 3r_{s}$.</p>
-</blockquote>
-</li>
-<li>$R_{ISCO}$ is the <strong>smallest distance</strong> from a BH for a particle to stably maintain a circular orbit.</li>
-<li>Amount of energy lost to radiation is related to ISCO.</li>
-<li>At $R_{ISCO}$, orbital frequency is proportional to $M^{-1}$. (~218Hz for $10M_{sun}$ BH).</li>
-</ul>
-<hr>
-<h3 id="Kerr-BH"><a href="#Kerr-BH" class="headerlink" title="Kerr BH"></a>Kerr BH</h3><h4 id="Structure-of-Kerr-BHs"><a href="#Structure-of-Kerr-BHs" class="headerlink" title="Structure of Kerr BHs"></a>Structure of Kerr BHs</h4><ul>
-<li>Frame-dragging effect</li>
-<li>Ring singularity $r = a \times (GM/c^{2})$</li>
-<li>Exist a possible way to exit BH</li>
-<li>Event horizon $r_{s} = \frac{GM}{c^{2}}[1+\sqrt{1-a^{2}}]$, for $a=1, r_{s} = 0.5 r_{s,schwarzschild}$.</li>
-<li><strong>Stationary limit surface</strong></li>
-<li>Penrose process</li>
-</ul>
-]]></content>
-      <categories>
-        <category>astrophysics</category>
-      </categories>
-      <tags>
-        <tag>astrophysics</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MPI Tutorial 2</title>
     <url>/blog/2021/03/23/MPI%20Tutorial%202/</url>
     <content><![CDATA[<h2 id="MPI-Tutorial-2-P2P-Communication"><a href="#MPI-Tutorial-2-P2P-Communication" class="headerlink" title="MPI Tutorial 2 - P2P Communication"></a>MPI Tutorial 2 - P2P Communication</h2><h3 id="P2P-Communication"><a href="#P2P-Communication" class="headerlink" title="P2P Communication"></a>P2P Communication</h3><p>點對點通訊在平行程式中相當重要，由於每個處理器會獨立執行<code>main()</code>，定義的變數也是獨立的，若要將變數的值或是資料傳送給其他處理器，就會用到通訊的函式。<br><div class="note info modern"><p>這個章節會介紹MPI_Send()及MPI_Recv()的應用</p>
@@ -109,6 +56,223 @@
     <title>觀星日誌01</title>
     <url>/blog/2021/03/25/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C01/</url>
     <content><![CDATA[<h1 id="觀星日誌-1"><a href="#觀星日誌-1" class="headerlink" title="觀星日誌 #1"></a>觀星日誌 #1</h1><div class="note info modern"><ul>
+<li>日期：2021/03/20(六) - 2021/03/21(日)</li>
+<li>時間：18:00 - 06:00</li>
+<li>月相：0.40</li>
+<li>天氣：陰轉晴</li>
+<li>地點：清境觀星園</li>
+</ul>
+</div>
+<h2 id="觀測概況"><a href="#觀測概況" class="headerlink" title="觀測概況"></a>觀測概況</h2><p>這次是我第一次在清境觀星，以往都是在鳶峰或昆陽看。在觀星園雖說受清境光害影響較大，但是有床還有提供早餐確實不錯，比在停車場看還要舒服不少。</p>
+<p><img src="https://i.imgur.com/OQiRzMO.jpg" alt=""></p>
+<p>這次上山基本上是天文社夜衝，總共有12個人參加，主要目標是完成梅西耶星表，還剩36個吧。早上在清大集合後就分成三車上山，我的午餐是在清水服務區吃的，吃完就直接去觀星園了。到達後各位就開始架儀，我這次是帶星野赤道儀加上 Canon 6D ，這台 6D 是我在去年11月底收的二手改機，但是一直沒有使用，所以這次也是它的開光日。</p>
+<p><img src="https://i.imgur.com/HDvwTjH.jpg" alt=""></p>
+<p>社上的 EM200 及 WO 132 FLT ，基本上梅西耶就靠它了。同時觀星園還有私人圓頂。</p>
+<p><img src="https://i.imgur.com/uh4y8Ft.jpg" alt=""></p>
+<p>晚上7點大家一起去吃魯媽媽，差點因為沒訂位吃不到，不過距離很近走路一下就到了。</p>
+<p><img src="https://i.imgur.com/fr4la6I.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/zE3r06j.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/Cgv9ZDw.jpg" alt=""></p>
+<p>當晚透明度很差，不過最近幾天霧霾相當嚴重，只不過居然連高山都被影響到，要說它是雲也不是，整晚都沒結露。上半夜基本上有很多中高雲，下半夜後才逐漸開天，不過上半夜受月光影響所以其實還好。此外，下半夜開始拍的梅西耶還算順利，總共拍了25個，半個晚上就完成四分之一也蠻不錯的。補充一下，當晚剛好遇到春分，也是觀測梅西耶天體的最佳時機，一晚能看到全部的梅西耶天體，因此當晚也有人在舉辦梅西耶馬拉松。</p>
+<p><img src="https://i.imgur.com/CLGJdyN.jpg" alt=""></p>
+<p>在下半夜拍的銀河原片，老實說受清境光害影響頗大(霧霾散射地面燈光加劇影響)，實測 SQM 約在20-21，盼望暗空公園的發展能降低未來民宿晚上的光害。</p>
+<p><img src="https://i.imgur.com/YuokwEp.jpg" alt=""></p>
+<p>清晨的天空，雲又出來了。</p>
+<p><img src="https://i.imgur.com/kA91bR1.jpg" alt=""></p>
+<p>離開前的最後一眼。</p>
+<p><img src="https://i.imgur.com/LgJUMkk.jpg" alt=""></p>
+<h2 id="觀測目標"><a href="#觀測目標" class="headerlink" title="觀測目標"></a>觀測目標</h2><ul>
+<li>William Optics 132 FLT 折射鏡</li>
+<li>Canon 60Da</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">目標</th>
+<th style="text-align:center">濾鏡</th>
+<th style="text-align:center">曝光時間 (s)</th>
+<th style="text-align:center">張數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">M3</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M4</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M5</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M6</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M9</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M10</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M14</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M18</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M19</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M21</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M23</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M24</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M25</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M53</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M56</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M62</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M71</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M80</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M92</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">M102</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Canon 6D (Mod)</li>
+<li>Canon 28-80mm F2.8-4 L</li>
+<li>IOptron SkyTracker Pro</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">目標</th>
+<th style="text-align:center">濾鏡</th>
+<th style="text-align:center">曝光時間 (s)</th>
+<th style="text-align:center">ISO</th>
+<th style="text-align:center">焦距 (mm)</th>
+<th style="text-align:center">光圈</th>
+<th style="text-align:center">張數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">銀河系廣域</td>
+<td style="text-align:center">No Filter</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">1600</td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">4.0</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="觀測成果"><a href="#觀測成果" class="headerlink" title="觀測成果"></a>觀測成果</h2><p><img src="https://i.imgur.com/2brlW4A.jpg" alt=""></p>
+<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><h3 id="Canon-6D-Mod-在用-28-80mm鏡頭的長焦段會反射內部IR光"><a href="#Canon-6D-Mod-在用-28-80mm鏡頭的長焦段會反射內部IR光" class="headerlink" title="Canon 6D (Mod) 在用 28-80mm鏡頭的長焦段會反射內部IR光"></a>Canon 6D (Mod) 在用 28-80mm鏡頭的長焦段會反射內部IR光</h3><p><img src="https://i.imgur.com/kBTHYtS.jpg" alt=""></p>
+<p>第一次看到嚇死我了，紅紅一條。</p>
+<p><img src="https://i.imgur.com/x6FhxtK.jpg" alt=""></p>
+<p>這個是Dark，已經蓋住觀景窗和機身了，證明是受到內部發出的光源影響。</p>
+<p>Canon會發光! 這問題真的是一個頭兩個大，疑似是開了Live View拍會把內部的紅外線燈弄到感光元件上，沒錯，內部友會發出紅外線的元件，目前還沒解決，下次再試試。下面有幾個論壇上相關的文章</p>
+<p><a href="https://www.cloudynights.com/topic/691280-astro-modified-6d-light-leak/">https://www.cloudynights.com/topic/691280-astro-modified-6d-light-leak/</a><br><a href="https://www.cloudynights.com/topic/466027-filter-mod-eos-6d-extraneous-signal-in-live-view/">https://www.cloudynights.com/topic/466027-filter-mod-eos-6d-extraneous-signal-in-live-view/</a><br><a href="https://www.cloudynights.com/topic/545012-weird-bloom-problem-canon-6d-and-astronomik-uvir-clip-filter/">https://www.cloudynights.com/topic/545012-weird-bloom-problem-canon-6d-and-astronomik-uvir-clip-filter/</a></p>
+<h2 id="待辦事項"><a href="#待辦事項" class="headerlink" title="待辦事項"></a>待辦事項</h2><ul>
+<li>解決相機內部紅外線光源問題</li>
+</ul>
+]]></content>
+      <categories>
+        <category>astronomy</category>
+      </categories>
+      <tags>
+        <tag>astrophotography</tag>
+        <tag>observation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>觀星日誌02</title>
+    <url>/blog/2021/03/27/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C02/</url>
+    <content><![CDATA[<h1 id="觀星日誌-2"><a href="#觀星日誌-2" class="headerlink" title="觀星日誌 #2"></a>觀星日誌 #2</h1><div class="note info modern"><ul>
 <li>日期：2021/03/24(三) - 2021/03/25(四)</li>
 <li>時間：22:00 - 07:30</li>
 <li>月相：0.79</li>
@@ -117,6 +281,9 @@
 </ul>
 </div>
 <h2 id="觀測概況"><a href="#觀測概況" class="headerlink" title="觀測概況"></a>觀測概況</h2><p>我是看到今天天氣預報說下半夜會轉晴才決定前往天文台過夜的，沒意外這次是我第一次使用清大天文台新加裝的攝影設備，拍攝時除了遇到濾鏡盤連接不良以及自動對焦的小狀況外，大致上都很順利，同時也有兩位同是天文台解說員的同學一同參與觀測。天亮時趕緊拍平場，拍得還不錯，拍完後就是漫長的暗電流，最後拍偏壓檔收尾。</p>
+<p><img src="https://i.imgur.com/vuCbb9U.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/zHYXLOz.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/vT2ME6p.jpg" alt=""></p>
 <h2 id="觀測目標"><a href="#觀測目標" class="headerlink" title="觀測目標"></a>觀測目標</h2><p>本次為了完成梅西耶星表拍攝數個梅西耶天體，這次是第一次開始製作梅西耶星表，預計拍攝110個天體。</p>
 <ul>
 <li>25cm F12 折射鏡</li>
@@ -191,12 +358,14 @@
 </table>
 </div>
 <p>其中 M20 為重點觀測目標，希望未來能補上更多資料。</p>
-<h2 id="觀測照片"><a href="#觀測照片" class="headerlink" title="觀測照片"></a>觀測照片</h2><p>處理中</p>
+<h2 id="觀測成果"><a href="#觀測成果" class="headerlink" title="觀測成果"></a>觀測成果</h2><p>處理中</p>
 <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><h3 id="濾鏡盤接觸不良"><a href="#濾鏡盤接觸不良" class="headerlink" title="濾鏡盤接觸不良"></a>濾鏡盤接觸不良</h3><p>電腦端常常反覆發出裝置斷線和連線的警示音，後期發現濾鏡盤連接不上，最後是將濾鏡盤訊號線從相機上的 USB 孔移至 USB Hub 上就沒這問題了</p>
 <h3 id="自動對焦找不到"><a href="#自動對焦找不到" class="headerlink" title="自動對焦找不到"></a>自動對焦找不到</h3><p>一開始用 MaxImDL 一直找不到對焦點，最後用 NINA 解決</p>
+<h3 id="Gain開到437"><a href="#Gain開到437" class="headerlink" title="Gain開到437"></a>Gain開到437</h3><p>$%*#@!</p>
 <h2 id="待辦事項"><a href="#待辦事項" class="headerlink" title="待辦事項"></a>待辦事項</h2><ul>
 <li>將NINA中的濾鏡後綴從數字編號改成濾鏡名稱</li>
 <li>嘗試將NINA連接星圖，得知該拍攝目標 </li>
+<li>蚊子好多，多到有點誇張</li>
 </ul>
 ]]></content>
       <categories>
@@ -204,7 +373,60 @@
       </categories>
       <tags>
         <tag>astrophotography</tag>
-        <tag>astronomy observing</tag>
+        <tag>observation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Introduction to the Black Hole Astrophysics</title>
+    <url>/blog/2021/03/16/Introduction%20to%20the%20Black%20Hole%20Astrophysics/</url>
+    <content><![CDATA[<h2 id="Lecture-4"><a href="#Lecture-4" class="headerlink" title="Lecture 4"></a>Lecture 4</h2><h2 id="Schwarzschild-and-Kerr-BHs"><a href="#Schwarzschild-and-Kerr-BHs" class="headerlink" title="Schwarzschild and Kerr BHs"></a>Schwarzschild and Kerr BHs</h2><h4 id="No-Hair-Theorem"><a href="#No-Hair-Theorem" class="headerlink" title="No Hair Theorem"></a>No Hair Theorem</h4><ul>
+<li>Maximum of parameters : <strong>{M,L,Q}</strong></li>
+<li>Satisfy the relation $Q^{2}+(L/M)^{2}\leq M^{2}$<h4 id="Constraints-of-BH-Spin"><a href="#Constraints-of-BH-Spin" class="headerlink" title="Constraints of BH Spin"></a>Constraints of BH Spin</h4></li>
+<li>Since electric force &gt;&gt; gravity, in general, <strong>Q=0</strong> for astrophysical BHs.</li>
+<li>For $Q=0$, $|L| \leq M^{2}$.</li>
+<li>Define $a = L/M^{2}$ as the BH spin parameter, then $0 \leq |a| \leq 1$.</li>
+<li>Two Types of BHs, Schwarzschild ($a=0$) and Kerr ($a\neq 0$).</li>
+</ul>
+<hr>
+<h3 id="Schwarzchild-BH"><a href="#Schwarzchild-BH" class="headerlink" title="Schwarzchild BH"></a>Schwarzchild BH</h3><ul>
+<li>Non-spinning, non-charged BH</li>
+<li><p>Schwarzchild Radius $r_{s} = \frac{2GM}{c^{s}} = 3km(M/M_{sun}) = 9mm(M/M_{earth})$</p>
+<blockquote>
+<p>Schwarzchild Matrix: $ds^{2} = c^{2}d\tau^{2} = Ac^{2}dt^{2} - Bd\tau^{2} - r^{2}d\theta^{2} - r^{2}sin^{2}\theta d\phi^{2} \text{ where } A=B^{-1}=(1-\frac{r_{s}}{r})$</p>
+</blockquote>
+</li>
+<li><p><strong>For light rays, $ds^{2}=0$</strong>, </p>
+</li>
+<li>From Schwarzchild matrix, $dt = \frac{d\tau}{\sqrt{1-\frac{r_{s}}{r}}}$, when $r\rightarrow \infty$, $dt=d\tau$, on the other hand, $dt\rightarrow \infty$ when $r\rightarrow r_{s}$.</li>
+<li>Define gravitational redshift $1+z = \frac{\lambda_{\infty}}{\lambda}$.</li>
+</ul>
+<h4 id="Orbital-Motions"><a href="#Orbital-Motions" class="headerlink" title="Orbital Motions"></a>Orbital Motions</h4><ul>
+<li>The orbital equation $(\frac{dr}{d\tau})^{2} = f$</li>
+<li>Effective potential $V(r) = \frac{h^{2}}{2r^{2}}(1-\frac{2GM}{c^{2}r})-\frac{GM}{r}$</li>
+<li>For $h&lt;2\sqrt{3}$ $(\frac{\partial^{2} V}{\partial r^{2}} \leq 0)$, there is no stable circular orbits.</li>
+<li><strong>Innermost stable circular orbit (ISCO)</strong> for Schwarzschild BHs ($h&lt;2\sqrt{3}$) <blockquote>
+<p>$R_{ISCO} = 6GM/c^{2} = 3r_{s}$.</p>
+</blockquote>
+</li>
+<li>$R_{ISCO}$ is the <strong>smallest distance</strong> from a BH for a particle to stably maintain a circular orbit.</li>
+<li>Amount of energy lost to radiation is related to ISCO.</li>
+<li>At $R_{ISCO}$, orbital frequency is proportional to $M^{-1}$. (~218Hz for $10M_{sun}$ BH).</li>
+</ul>
+<hr>
+<h3 id="Kerr-BH"><a href="#Kerr-BH" class="headerlink" title="Kerr BH"></a>Kerr BH</h3><h4 id="Structure-of-Kerr-BHs"><a href="#Structure-of-Kerr-BHs" class="headerlink" title="Structure of Kerr BHs"></a>Structure of Kerr BHs</h4><ul>
+<li>Frame-dragging effect</li>
+<li>Ring singularity $r = a \times (GM/c^{2})$</li>
+<li>Exist a possible way to exit BH</li>
+<li>Event horizon $r_{s} = \frac{GM}{c^{2}}[1+\sqrt{1-a^{2}}]$, for $a=1, r_{s} = 0.5 r_{s,schwarzschild}$.</li>
+<li><strong>Stationary limit surface</strong></li>
+<li>Penrose process</li>
+</ul>
+]]></content>
+      <categories>
+        <category>astrophysics</category>
+      </categories>
+      <tags>
+        <tag>black hole</tag>
       </tags>
   </entry>
 </search>

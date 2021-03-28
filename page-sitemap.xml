@@ -10,26 +10,8 @@
     
     
     <url>
-        <loc>https://jamiechang917.github.io/blog/info/</loc>
-        <lastmod>2021-03-17T14:40:28.025Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://jamiechang917.github.io/blog/about/</loc>
-        <lastmod>2021-03-17T04:52:31.381Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://jamiechang917.github.io/blog/categories/</loc>
-        <lastmod>2021-03-17T04:51:29.428Z</lastmod>
+        <lastmod>2021-03-27T14:15:37.409Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -38,7 +20,25 @@
     
     <url>
         <loc>https://jamiechang917.github.io/blog/tags/</loc>
-        <lastmod>2021-03-17T04:49:34.334Z</lastmod>
+        <lastmod>2021-03-27T12:23:42.875Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://jamiechang917.github.io/blog/info/</loc>
+        <lastmod>2021-03-27T12:23:34.150Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://jamiechang917.github.io/blog/categories/</loc>
+        <lastmod>2021-03-27T12:23:17.531Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
