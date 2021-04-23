@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>MPI Tutorial 1</title>
-    <url>/blog/2021/03/22/MPI%20Tutorial%201/</url>
+    <url>/blog/2021/03/22/MPITutorial01/</url>
     <content><![CDATA[<h2 id="MPI-Tutorial-1-Hello-MPI-World"><a href="#MPI-Tutorial-1-Hello-MPI-World" class="headerlink" title="MPI Tutorial 1 - Hello MPI World!"></a>MPI Tutorial 1 - Hello MPI World!</h2><h3 id="What-is-MPI"><a href="#What-is-MPI" class="headerlink" title="What is MPI?"></a>What is MPI?</h3><h3 id="Example-Hello-MPI-World"><a href="#Example-Hello-MPI-World" class="headerlink" title="Example - Hello MPI World!"></a>Example - Hello MPI World!</h3><div class="note info modern"><p>這個範例將演示如何初始化MPI，以及MPI的一些基本參數。</p>
 </div>
 <p>Hello_MPI_World.c<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mpi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> agrc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    MPI_Init(<span class="literal">NULL</span>,<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">int</span> size, rank;</span><br><span class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);</span><br><span class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world from rank %d, the world size is %d.\n&quot;</span>,rank,size);</span><br><span class="line">    MPI_Finalize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>執行<code>mpicc -O3 ./Hello_MPI_World.c</code>編譯，接著執行<code>mpirun -np &lt;處理器數量&gt; &lt;編譯完的檔案&gt;</code>。</p>
@@ -29,8 +29,32 @@
       </tags>
   </entry>
   <entry>
+    <title>MPI Tutorial 2</title>
+    <url>/blog/2021/03/23/MPITutorial02/</url>
+    <content><![CDATA[<h2 id="MPI-Tutorial-2-P2P-Communication"><a href="#MPI-Tutorial-2-P2P-Communication" class="headerlink" title="MPI Tutorial 2 - P2P Communication"></a>MPI Tutorial 2 - P2P Communication</h2><h3 id="P2P-Communication"><a href="#P2P-Communication" class="headerlink" title="P2P Communication"></a>P2P Communication</h3><p>點對點通訊在平行程式中相當重要，由於每個處理器會獨立執行<code>main()</code>，定義的變數也是獨立的，若要將變數的值或是資料傳送給其他處理器，就會用到通訊的函式。<br><div class="note info modern"><p>這個章節會介紹MPI_Send()及MPI_Recv()的應用</p>
+</div></p>
+<h3 id="Example-Ring-Program"><a href="#Example-Ring-Program" class="headerlink" title="Example - Ring Program"></a>Example - Ring Program</h3><p>ring.c<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mpi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> agrc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    MPI_Init(<span class="literal">NULL</span>,<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">int</span> size, rank;</span><br><span class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);</span><br><span class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank == <span class="number">0</span>) &#123;</span><br><span class="line">        value = <span class="number">2021</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Rank: %d, Value: %d\n&quot;</span>,rank,value);</span><br><span class="line">    MPI_Barrier(MPI_COMM_WORLD);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank != <span class="number">0</span>)&#123; <span class="comment">//All process should be ready for receiving the value first. Otherwise some process will send initial value to another one, instead of new value.</span></span><br><span class="line">        MPI_Recv(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank<span class="number">-1</span>,<span class="number">0</span>,MPI_COMM_WORLD,MPI_STATUS_IGNORE);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d received the value from %d\n&quot;</span>,rank,rank<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank == <span class="number">0</span>)&#123;</span><br><span class="line">        MPI_Send(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank+<span class="number">1</span>,<span class="number">0</span>,MPI_COMM_WORLD);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d sent the value to %d\n&quot;</span>,rank,rank+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(rank != size<span class="number">-1</span>)&#123;</span><br><span class="line">        MPI_Send(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank+<span class="number">1</span>,<span class="number">0</span>,MPI_COMM_WORLD);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d sent the value to %d\n&quot;</span>,rank,rank+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    MPI_Barrier(MPI_COMM_WORLD);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Program is end. Rank: %d, Value: %d\n&quot;</span>,rank,value);</span><br><span class="line">    MPI_Finalize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>使用8個處理器的執行結果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Rank: 1, Value: 0</span><br><span class="line">Rank: 3, Value: 0</span><br><span class="line">Rank: 6, Value: 0</span><br><span class="line">Rank: 4, Value: 0</span><br><span class="line">Rank: 5, Value: 0</span><br><span class="line">Rank: 7, Value: 0</span><br><span class="line">Rank: 2, Value: 0</span><br><span class="line">Rank: 0, Value: 2021</span><br><span class="line">Rank 0 sent the value to 1</span><br><span class="line">Rank 1 received the value from 0</span><br><span class="line">Rank 1 sent the value to 2</span><br><span class="line">Rank 2 received the value from 1</span><br><span class="line">Rank 2 sent the value to 3</span><br><span class="line">Rank 3 received the value from 2</span><br><span class="line">Rank 3 sent the value to 4</span><br><span class="line">Rank 4 received the value from 3</span><br><span class="line">Rank 4 sent the value to 5</span><br><span class="line">Rank 5 received the value from 4</span><br><span class="line">Rank 5 sent the value to 6</span><br><span class="line">Rank 6 received the value from 5</span><br><span class="line">Rank 6 sent the value to 7</span><br><span class="line">Rank 7 received the value from 6</span><br><span class="line">Program is end. Rank: 0, Value: 2021</span><br><span class="line">Program is end. Rank: 1, Value: 2021</span><br><span class="line">Program is end. Rank: 2, Value: 2021</span><br><span class="line">Program is end. Rank: 3, Value: 2021</span><br><span class="line">Program is end. Rank: 4, Value: 2021</span><br><span class="line">Program is end. Rank: 5, Value: 2021</span><br><span class="line">Program is end. Rank: 6, Value: 2021</span><br><span class="line">Program is end. Rank: 7, Value: 2021</span><br></pre></td></tr></table></figure><br>這個<code>ring.c</code>的範例主要是將 rank 0 的 <code>value</code> 變數依序傳遞給其餘的處理器，在開頭我們宣告 <code>int value = 0</code>，唯獨 rank 0 的 <code>value</code> 是 2021，宣告完後會先 print 每個 rank 各自的 <code>value</code>。</p>
+<p>接著你會看到<code>MPI_Barrier(MPI_COMM_WORLD)</code>，這個函式會等待所有的處理器處理完才繼續執行後面的工作，為平行運算中的同步化。</p>
+<p>最後每個處理器會使用<code>MPI_Recv()</code>來接收來自<code>rank-1</code>的資料，並存入<code>value</code>變數。如果沒有接收到資料，處理器會閒置直到接受資料為止。接著 rank 0 會發送自己<code>value</code>的值給 rank 1，然後 rank 1 會接收其值並存入自己的<code>value</code>變數，以此推類直到最後一個處理器。</p>
+<h4 id="MPI-Send"><a href="#MPI-Send" class="headerlink" title="MPI_Send()"></a>MPI_Send()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Send(</span><br><span class="line">    <span class="keyword">void</span>* data,</span><br><span class="line">    <span class="keyword">int</span> count,</span><br><span class="line">    MPI_Datatype datatype,</span><br><span class="line">    <span class="keyword">int</span> destination,</span><br><span class="line">    <span class="keyword">int</span> tag,</span><br><span class="line">    MPI_Comm communicator)</span><br></pre></td></tr></table></figure>
+<p>第一個參數放要傳送的資料的記憶體位址，第二第三分別放傳送的資料數量及類型，<code>destination</code>是目標的 rank，<code>tag</code>可以是任意的正整數，用來標記。</p>
+<h4 id="MPI-Recv"><a href="#MPI-Recv" class="headerlink" title="MPI_Recv()"></a>MPI_Recv()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Recv(</span><br><span class="line">    <span class="keyword">void</span>* data,</span><br><span class="line">    <span class="keyword">int</span> count,</span><br><span class="line">    MPI_Datatype datatype,</span><br><span class="line">    <span class="keyword">int</span> source,</span><br><span class="line">    <span class="keyword">int</span> tag,</span><br><span class="line">    MPI_Comm communicator,</span><br><span class="line">    MPI_Status* status)</span><br></pre></td></tr></table></figure>
+<p>與<code>MPI_Send()</code>類似，第一個參數放要存入的變數記憶體位址，唯一需要注意的是<code>MPI_Recv()</code>需要知道接收到的資料大小和類型。</p>
+<h4 id="MPI-Barrier"><a href="#MPI-Barrier" class="headerlink" title="MPI_Barrier()"></a>MPI_Barrier()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Barrier(MPI_Comm communicator)</span><br></pre></td></tr></table></figure>
+<p>同步化所有的進程，等待所有處理器處理完分配的工作後，才會繼續執行後續的程序。<br><div class="note warning modern"><p>在範例中我們先執行<code>MPI_Recv</code>而不是<code>MPI_Send</code>，是為了避免 rank 0 外的處理器在得到上一個處理器傳送的<code>value</code>前先行傳送自己的<code>value</code>，這樣會導致 rank 0 的<code>value</code>無法依序傳遞到最後一個處理器。</p>
+</div></p>
+]]></content>
+      <categories>
+        <category>MPI</category>
+      </categories>
+      <tags>
+        <tag>parallel programming</tag>
+        <tag>MPI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>觀星日誌01</title>
-    <url>/blog/2021/03/25/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C01/</url>
+    <url>/blog/2021/03/25/StarDiary01/</url>
     <content><![CDATA[<h1 id="觀星日誌-1"><a href="#觀星日誌-1" class="headerlink" title="觀星日誌 #1"></a>觀星日誌 #1</h1><div class="note info modern"><ul>
 <li>日期：2021/03/20(六) - 2021/03/21(日)</li>
 <li>時間：18:00 - 06:00</li>
@@ -246,32 +270,8 @@
       </tags>
   </entry>
   <entry>
-    <title>MPI Tutorial 2</title>
-    <url>/blog/2021/03/23/MPI%20Tutorial%202/</url>
-    <content><![CDATA[<h2 id="MPI-Tutorial-2-P2P-Communication"><a href="#MPI-Tutorial-2-P2P-Communication" class="headerlink" title="MPI Tutorial 2 - P2P Communication"></a>MPI Tutorial 2 - P2P Communication</h2><h3 id="P2P-Communication"><a href="#P2P-Communication" class="headerlink" title="P2P Communication"></a>P2P Communication</h3><p>點對點通訊在平行程式中相當重要，由於每個處理器會獨立執行<code>main()</code>，定義的變數也是獨立的，若要將變數的值或是資料傳送給其他處理器，就會用到通訊的函式。<br><div class="note info modern"><p>這個章節會介紹MPI_Send()及MPI_Recv()的應用</p>
-</div></p>
-<h3 id="Example-Ring-Program"><a href="#Example-Ring-Program" class="headerlink" title="Example - Ring Program"></a>Example - Ring Program</h3><p>ring.c<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mpi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> agrc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    MPI_Init(<span class="literal">NULL</span>,<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">int</span> size, rank;</span><br><span class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);</span><br><span class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank == <span class="number">0</span>) &#123;</span><br><span class="line">        value = <span class="number">2021</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Rank: %d, Value: %d\n&quot;</span>,rank,value);</span><br><span class="line">    MPI_Barrier(MPI_COMM_WORLD);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank != <span class="number">0</span>)&#123; <span class="comment">//All process should be ready for receiving the value first. Otherwise some process will send initial value to another one, instead of new value.</span></span><br><span class="line">        MPI_Recv(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank<span class="number">-1</span>,<span class="number">0</span>,MPI_COMM_WORLD,MPI_STATUS_IGNORE);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d received the value from %d\n&quot;</span>,rank,rank<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rank == <span class="number">0</span>)&#123;</span><br><span class="line">        MPI_Send(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank+<span class="number">1</span>,<span class="number">0</span>,MPI_COMM_WORLD);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d sent the value to %d\n&quot;</span>,rank,rank+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(rank != size<span class="number">-1</span>)&#123;</span><br><span class="line">        MPI_Send(&amp;value,<span class="number">1</span>,MPI_FLOAT,rank+<span class="number">1</span>,<span class="number">0</span>,MPI_COMM_WORLD);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Rank %d sent the value to %d\n&quot;</span>,rank,rank+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    MPI_Barrier(MPI_COMM_WORLD);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Program is end. Rank: %d, Value: %d\n&quot;</span>,rank,value);</span><br><span class="line">    MPI_Finalize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>使用8個處理器的執行結果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Rank: 1, Value: 0</span><br><span class="line">Rank: 3, Value: 0</span><br><span class="line">Rank: 6, Value: 0</span><br><span class="line">Rank: 4, Value: 0</span><br><span class="line">Rank: 5, Value: 0</span><br><span class="line">Rank: 7, Value: 0</span><br><span class="line">Rank: 2, Value: 0</span><br><span class="line">Rank: 0, Value: 2021</span><br><span class="line">Rank 0 sent the value to 1</span><br><span class="line">Rank 1 received the value from 0</span><br><span class="line">Rank 1 sent the value to 2</span><br><span class="line">Rank 2 received the value from 1</span><br><span class="line">Rank 2 sent the value to 3</span><br><span class="line">Rank 3 received the value from 2</span><br><span class="line">Rank 3 sent the value to 4</span><br><span class="line">Rank 4 received the value from 3</span><br><span class="line">Rank 4 sent the value to 5</span><br><span class="line">Rank 5 received the value from 4</span><br><span class="line">Rank 5 sent the value to 6</span><br><span class="line">Rank 6 received the value from 5</span><br><span class="line">Rank 6 sent the value to 7</span><br><span class="line">Rank 7 received the value from 6</span><br><span class="line">Program is end. Rank: 0, Value: 2021</span><br><span class="line">Program is end. Rank: 1, Value: 2021</span><br><span class="line">Program is end. Rank: 2, Value: 2021</span><br><span class="line">Program is end. Rank: 3, Value: 2021</span><br><span class="line">Program is end. Rank: 4, Value: 2021</span><br><span class="line">Program is end. Rank: 5, Value: 2021</span><br><span class="line">Program is end. Rank: 6, Value: 2021</span><br><span class="line">Program is end. Rank: 7, Value: 2021</span><br></pre></td></tr></table></figure><br>這個<code>ring.c</code>的範例主要是將 rank 0 的 <code>value</code> 變數依序傳遞給其餘的處理器，在開頭我們宣告 <code>int value = 0</code>，唯獨 rank 0 的 <code>value</code> 是 2021，宣告完後會先 print 每個 rank 各自的 <code>value</code>。</p>
-<p>接著你會看到<code>MPI_Barrier(MPI_COMM_WORLD)</code>，這個函式會等待所有的處理器處理完才繼續執行後面的工作，為平行運算中的同步化。</p>
-<p>最後每個處理器會使用<code>MPI_Recv()</code>來接收來自<code>rank-1</code>的資料，並存入<code>value</code>變數。如果沒有接收到資料，處理器會閒置直到接受資料為止。接著 rank 0 會發送自己<code>value</code>的值給 rank 1，然後 rank 1 會接收其值並存入自己的<code>value</code>變數，以此推類直到最後一個處理器。</p>
-<h4 id="MPI-Send"><a href="#MPI-Send" class="headerlink" title="MPI_Send()"></a>MPI_Send()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Send(</span><br><span class="line">    <span class="keyword">void</span>* data,</span><br><span class="line">    <span class="keyword">int</span> count,</span><br><span class="line">    MPI_Datatype datatype,</span><br><span class="line">    <span class="keyword">int</span> destination,</span><br><span class="line">    <span class="keyword">int</span> tag,</span><br><span class="line">    MPI_Comm communicator)</span><br></pre></td></tr></table></figure>
-<p>第一個參數放要傳送的資料的記憶體位址，第二第三分別放傳送的資料數量及類型，<code>destination</code>是目標的 rank，<code>tag</code>可以是任意的正整數，用來標記。</p>
-<h4 id="MPI-Recv"><a href="#MPI-Recv" class="headerlink" title="MPI_Recv()"></a>MPI_Recv()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Recv(</span><br><span class="line">    <span class="keyword">void</span>* data,</span><br><span class="line">    <span class="keyword">int</span> count,</span><br><span class="line">    MPI_Datatype datatype,</span><br><span class="line">    <span class="keyword">int</span> source,</span><br><span class="line">    <span class="keyword">int</span> tag,</span><br><span class="line">    MPI_Comm communicator,</span><br><span class="line">    MPI_Status* status)</span><br></pre></td></tr></table></figure>
-<p>與<code>MPI_Send()</code>類似，第一個參數放要存入的變數記憶體位址，唯一需要注意的是<code>MPI_Recv()</code>需要知道接收到的資料大小和類型。</p>
-<h4 id="MPI-Barrier"><a href="#MPI-Barrier" class="headerlink" title="MPI_Barrier()"></a>MPI_Barrier()</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">MPI_Barrier(MPI_Comm communicator)</span><br></pre></td></tr></table></figure>
-<p>同步化所有的進程，等待所有處理器處理完分配的工作後，才會繼續執行後續的程序。<br><div class="note warning modern"><p>在範例中我們先執行<code>MPI_Recv</code>而不是<code>MPI_Send</code>，是為了避免 rank 0 外的處理器在得到上一個處理器傳送的<code>value</code>前先行傳送自己的<code>value</code>，這樣會導致 rank 0 的<code>value</code>無法依序傳遞到最後一個處理器。</p>
-</div></p>
-]]></content>
-      <categories>
-        <category>MPI</category>
-      </categories>
-      <tags>
-        <tag>parallel programming</tag>
-        <tag>MPI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>觀星日誌02</title>
-    <url>/blog/2021/03/27/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C02/</url>
+    <url>/blog/2021/03/27/StarDiary02/</url>
     <content><![CDATA[<h1 id="觀星日誌-2"><a href="#觀星日誌-2" class="headerlink" title="觀星日誌 #2"></a>觀星日誌 #2</h1><div class="note info modern"><ul>
 <li>日期：2021/03/24(三) - 2021/03/25(四)</li>
 <li>時間：22:00 - 07:30</li>
@@ -378,9 +378,9 @@
   </entry>
   <entry>
     <title>觀星日誌03</title>
-    <url>/blog/2021/04/14/%E8%A7%80%E6%98%9F%E6%97%A5%E8%AA%8C03/</url>
+    <url>/blog/2021/04/14/StarDiary03/</url>
     <content><![CDATA[<h1 id="觀星日誌-3"><a href="#觀星日誌-3" class="headerlink" title="觀星日誌 #3"></a>觀星日誌 #3</h1><div class="note info modern"><ul>
-<li>日期：2021/04/12(一) - 2021/04/13(三)</li>
+<li>日期：2021/04/12(一) - 2021/04/13(二)</li>
 <li>時間：23:00 - 07:00</li>
 <li>月相：0.01</li>
 <li>天氣：晴，清晨薄霧</li>
@@ -416,7 +416,8 @@
 </tbody>
 </table>
 </div>
-<h2 id="觀測成果"><a href="#觀測成果" class="headerlink" title="觀測成果"></a>觀測成果</h2><p>處理中</p>
+<h2 id="觀測成果"><a href="#觀測成果" class="headerlink" title="觀測成果"></a>觀測成果</h2><p><strong><em>M20</em></strong><br><img src="https://i.imgur.com/eVp8onC.jpg" alt=""></p>
+<p>這次是測試曝光參數，星點當時刻意過曝，因此都是死白的。</p>
 <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><h3 id="NINA連接ASI-6200MM持續報錯"><a href="#NINA連接ASI-6200MM持續報錯" class="headerlink" title="NINA連接ASI 6200MM持續報錯"></a>NINA連接ASI 6200MM持續報錯</h3><p>原因未知，但先用Maxim DL連接成功後再開啟NINA即可順利連結，然後再切斷Maxim DL的連接就好。</p>
 <h3 id="在Maxim-DL下無法使用自動對焦"><a href="#在Maxim-DL下無法使用自動對焦" class="headerlink" title="在Maxim DL下無法使用自動對焦"></a>在Maxim DL下無法使用自動對焦</h3><p>在NINA下可以，但是NINA下選擇Airy Autofocuser無法連接，顯示驅動報錯。ㄏ選擇Device Hub Focuser則能順利連線，而且與Airy Focuser Drive顯示內容同步。</p>
 <p><img src="https://i.imgur.com/twl1D9V.png" alt=""></p>
@@ -436,6 +437,127 @@
 <li>尋找合適的曝光參數 </li>
 <li>新放的捕蚊燈沒用，蚊子太聰明了</li>
 <li>檔案巨大，下次準備一個硬碟去裝資料</li>
+</ul>
+]]></content>
+      <categories>
+        <category>astronomy</category>
+      </categories>
+      <tags>
+        <tag>astrophotography</tag>
+        <tag>observation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>觀星日誌04</title>
+    <url>/blog/2021/04/21/StarDiary04/</url>
+    <content><![CDATA[<h1 id="觀星日誌-4"><a href="#觀星日誌-4" class="headerlink" title="觀星日誌 #4"></a>觀星日誌 #4</h1><div class="note info modern"><ul>
+<li>日期：2021/04/20(二) - 2021/04/21(三)</li>
+<li>時間：20:00 - 07:00</li>
+<li>月相：0.54</li>
+<li>天氣：晴</li>
+<li>地點：清大天文台</li>
+</ul>
+</div>
+<h2 id="觀測概況"><a href="#觀測概況" class="headerlink" title="觀測概況"></a>觀測概況</h2><p>自從在上禮拜的觀測時間裡不斷嘗試後，這次就非常順手，所有設置很快就處理好了。而成功用NINA自動對焦。我發現每個濾鏡的焦點比我想的差距還要大。下面是我量到的各個濾鏡的對焦點。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">濾鏡</th>
+<th style="text-align:center">對焦器位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">55493</td>
+</tr>
+<tr>
+<td style="text-align:center">R</td>
+<td style="text-align:center">46133</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">35899</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">65531</td>
+</tr>
+<tr>
+<td style="text-align:center">Ha</td>
+<td style="text-align:center">38744</td>
+</tr>
+<tr>
+<td style="text-align:center">OIII</td>
+<td style="text-align:center">51000</td>
+</tr>
+<tr>
+<td style="text-align:center">SII</td>
+<td style="text-align:center">56805</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>量測時間：21:00, 溫度：28.94度</p>
+<p>此外，未來的曝光策略應該會固定，<strong>LRGB(Gain:110, Offset:50) &amp; HSO(Gain:200, Offset:50)</strong>。</p>
+<p>這次觀測相當順利，沒有遇到任何問題。<br><img src="https://i.imgur.com/x8ygh2K.jpg" alt=""></p>
+<p>清晨還出現一些怪雲(<del>差點毀了平場</del>)，頂樓還能同時看海跟日出=U=<br><img src="https://i.imgur.com/brYPPAT.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/GmaHIX7.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/tAmbQZr.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/7aiVzaR.jpg" alt=""></p>
+<h2 id="觀測目標"><a href="#觀測目標" class="headerlink" title="觀測目標"></a>觀測目標</h2><p>本次目標為上弦月,M3,M16,及M101</p>
+<ul>
+<li>25cm F12 折射鏡</li>
+<li>ASI 6200MM Pro @ 0°C</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">目標</th>
+<th style="text-align:center">濾鏡</th>
+<th style="text-align:center">曝光時間 (s)</th>
+<th style="text-align:center">張數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">上弦月</td>
+<td style="text-align:center">L,R,G,B,Ha,OIII,SII</td>
+<td style="text-align:center">錄影</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">M3</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">5,5,5,5</td>
+</tr>
+<tr>
+<td style="text-align:center">M16</td>
+<td style="text-align:center">Ha,OIII,SII</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">10,10,10</td>
+</tr>
+<tr>
+<td style="text-align:center">M101</td>
+<td style="text-align:center">L,R,G,B</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">3,3,3,3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>M101未來還需要補更多曝光，窄頻M16的效果很好。</p>
+<h2 id="觀測成果"><a href="#觀測成果" class="headerlink" title="觀測成果"></a>觀測成果</h2><p><strong><em>Mineral Moon</em></strong><br><img src="https://i.imgur.com/d15wFs7.jpg" alt=""></p>
+<p>待處理</p>
+<h2 id="補充事項"><a href="#補充事項" class="headerlink" title="補充事項"></a>補充事項</h2><h3 id="平場建議拍攝順序-清晨"><a href="#平場建議拍攝順序-清晨" class="headerlink" title="平場建議拍攝順序(清晨)"></a>平場建議拍攝順序(清晨)</h3><p>這次透過曝光仔細檢查平場的拍攝順序。</p>
+<p><strong>L&gt;B&gt;G&gt;R-&gt;OIII-&gt;SII-&gt;Ha</strong></p>
+<p>R=172<br>G=132<br>B=57<br>Ha=1352<br>OIII=698<br>SII=1094</p>
+<p><img src="https://i.imgur.com/bqGCYqM.jpg" alt=""></p>
+<h2 id="待辦事項"><a href="#待辦事項" class="headerlink" title="待辦事項"></a>待辦事項</h2><ul>
+<li>[ ] 為M101,M16取得更多曝光</li>
 </ul>
 ]]></content>
       <categories>
